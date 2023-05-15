@@ -3,7 +3,6 @@ const moment = require("moment")
 require("moment/locale/pt-br")
 moment.locale('pt-br')
 
-const { URL_SERVER } = require("./credentials")
 const { parseCookies, setCookie } = require('nookies');
 
 async function api(session = {}) {
@@ -16,7 +15,7 @@ async function api(session = {}) {
         const client_secret = process.env.NEXT_PUBLIC_CLIENT_SECRET
         const client_app = process.env.NEXT_PUBLIC_CLIENT_APP
 
-        const urlToken = `${URL_SERVER}/token?&_client_id=${client_id}&_client_secret=${client_secret}&_client_app=${client_app}`
+        const urlToken = `${process.env.NEXT_PUBLIC_URL_SERVER}/token?&_client_id=${client_id}&_client_secret=${client_secret}&_client_app=${client_app}`
         const tokenSv = await axios.get(urlToken).then(res => res.data) /* Gera o token  para o passaport do client */
 
         /* Armazena token por 10m */
@@ -45,7 +44,7 @@ async function api(session = {}) {
 /* Ultiliza no updated_at, created_at, deleted_at */
 function dataHoraAtual() {
     const date = new Date();
- /*    date.setHours(date.getHours() - 3) */
+    /*    date.setHours(date.getHours() - 3) */
     return date;
 }
 
