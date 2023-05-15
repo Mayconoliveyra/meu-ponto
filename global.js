@@ -24,7 +24,7 @@ async function api(session = {}) {
         });
 
         return axios.create({
-            baseURL: URL_SERVER,
+            baseURL: process.env.NEXT_PUBLIC_URL_SERVER,
             headers: {
                 "Authorization": `bearer ${tokenSv}`,
                 "usuario": tokenUsuario,
@@ -32,7 +32,7 @@ async function api(session = {}) {
         })
     } else {
         return axios.create({
-            baseURL: URL_SERVER,
+            baseURL: process.env.NEXT_PUBLIC_URL_SERVER,
             headers: {
                 "Authorization": `bearer ${tokenApp}`,
                 "usuario": tokenUsuario,
