@@ -30,7 +30,7 @@ export function horaForm(hr) {
 import { TituloForm } from "../../components/formulario/titulo/components"
 import { TabelaForm, ThForm, TdForm, VazioForm, PaginadorForm, TableVW } from "../../components/formulario/tabela/components";
 
-import { api } from "../../../global";
+import { api, dataHoraAtual } from "../../../global";
 
 const prefix = "ponto"
 const prefixRouter = "/pontos"
